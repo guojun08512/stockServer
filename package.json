@@ -26,7 +26,6 @@
     "koa2-cors": "^2.0.6",
     "koa2-winston": "^1.7.1",
     "lodash": "^4.17.10",
-    "moment": "^2.22.2",
     "mysql2": "^1.5.1",
     "nconf": "^0.10.0",
     "nodemailer": "^4.6.7",
