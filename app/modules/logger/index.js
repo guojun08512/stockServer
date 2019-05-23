@@ -29,7 +29,7 @@ const logger = new winston.Logger({
     }),
     // eslint-disable-next-line
     new winstonDailyRotateFile({
-      filename: path.join(logdir, 'nodeDriver.log'),
+      filename: path.join(logdir, 'stockServer.log'),
       timestamp,
       maxsize: config.get('LOG_MAXSIZE'),
     }),
@@ -47,7 +47,7 @@ const sequelizeLogger = new winston.Logger({
   transports: [
     // eslint-disable-next-line
     new winstonDailyRotateFile({
-      filename: path.join(logdir, 'payServer_db.log'),
+      filename: path.join(logdir, 'stockServer_db.log'),
       timestamp,
       maxsize: config.get('LOG_MAXSIZE'),
     }),
