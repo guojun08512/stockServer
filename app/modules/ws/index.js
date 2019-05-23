@@ -35,7 +35,7 @@ export function CreateWsServer() {
 }
 
 export function SendMsg(pyData) {
-  const cliWs = new WebSocket('ws://127.0.0.1:8001/data');
+  const cliWs = new WebSocket(`ws://127.0.0.1:${config.get('WS_PORT')}/data`);
   cliWs.on('open', () => {
     cliWs.send(JSON.stringify(pyData));
   });
