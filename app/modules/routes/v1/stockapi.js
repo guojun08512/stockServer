@@ -1,8 +1,10 @@
 import Router from 'koa-router';
+import { SendMsg } from 'modules/ws';
 
 async function StockData(ctx) {
   const data = ctx.request.body;
   console.log(data);
+  SendMsg(data);
   ctx.success({ status: 0 }, 'StockData success!');
 }
 

@@ -39,7 +39,7 @@ const createWorker = () => {
         app.listen(config.get('HTTP_PORT'));
         logger.debug(`http worker (${cluster.worker.id}) Listening on ${config.get('HTTP_PORT')}`);
       } else if (msg && msg.msgtype === 'ws') {
-        CreateWsServer(config.get('WS_PORT'));
+        CreateWsServer();
         logger.debug(`ws worker (${cluster.worker.id}) Listening on ${config.get('WS_PORT')}`);
       }
     });
