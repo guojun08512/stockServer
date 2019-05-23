@@ -17,7 +17,6 @@ const koaStatic = require('koa-static')(`${__dirname}/../../public`);
 
 const app = new Koa();
 onerror(app);
-console.log(app.wss);
 
 // middlewares
 app.use(koaLogger);
