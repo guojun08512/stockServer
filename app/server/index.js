@@ -7,7 +7,7 @@ import onerror from 'koa-onerror';
 import bodyparser from 'koa-bodyparser';
 import cors from 'koa2-cors';
 import indexRoute from 'modules/routes';
-import { koaLogger } from 'modules/logger';
+// import { koaLogger } from 'modules/logger';
 import responseData from 'modules/middleware/responsedata';
 import errorRouteCatch from 'modules/middleware/errorroutescatch';
 // import userAuth from 'modules/middleware/userauth';
@@ -19,7 +19,7 @@ const app = new Koa();
 onerror(app);
 
 // middlewares
-app.use(koaLogger);
+// app.use(koaLogger);
 app.use(async (ctx, next) => {
   const start = new Date();
   await next();

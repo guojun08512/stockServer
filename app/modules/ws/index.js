@@ -10,9 +10,9 @@ function dealMsg(wss) {
         logger.info('data api received: %s', data); // eslint-disable-line
         wss.clients.forEach((client) => {
           if (ws !== client && client.readyState === WebSocket.OPEN) {
-            client.send(data);
+            client.send(JSON.stringify({ cmd: 'data', args: [data] }));
           } else if (ws === client && client.readyState === WebSocket.OPEN) {
-            client.send('receive data I am ok');
+            client.send(JSON.stringify({ cmd: 'data', args: ['receive data I am ok'] }));
           }
         });
       });
@@ -21,7 +21,7 @@ function dealMsg(wss) {
         logger.info('heartbeat received: %s', data); // eslint-disable-line
         wss.clients.forEach((client) => {
           if (ws === client && client.readyState === WebSocket.OPEN) {
-            client.send(data);
+            client.send(JSON.stringify({ cmd: 'ping', args: [`heartbeat ${Date.parse(new Date())}`] }));
           }
         });
       });
