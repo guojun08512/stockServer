@@ -11,8 +11,13 @@ async function StockData(ctx) {
   ctx.success({ status: 0 }, 'StockData success!');
 }
 
+async function GetAllData(ctx) {
+  ctx.success({ data: SelfMap.GetAll() }, 'GetAllData success!');
+}
+
 const router = Router();
 const routers = router
-  .post('/', StockData);
+  .post('/', StockData)
+  .get('/alldata', GetAllData);
 
 module.exports = routers;
