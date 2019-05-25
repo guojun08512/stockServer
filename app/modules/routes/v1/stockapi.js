@@ -12,7 +12,10 @@ async function StockData(ctx) {
 }
 
 async function GetAllData(ctx) {
-  ctx.success({ data: SelfMap.GetAll() }, 'GetAllData success!');
+  const mapData = SelfMap.GetAll();
+  const keys = Object.keys(mapData);
+  const data = keys.map(k => mapData[k]);
+  ctx.success({ data }, 'GetAllData success!');
 }
 
 const router = Router();
