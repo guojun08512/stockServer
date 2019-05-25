@@ -6,7 +6,10 @@ async function StockData(ctx) {
   const data = ctx.request.body;
   if (data && data.id) {
     SelfMap.AddValue(data.id, data);
-    SendMsg(data);
+    const mapData = SelfMap.GetAll();
+    const keys = Object.keys(mapData);
+    const msg = keys.map(k => mapData[k]);
+    SendMsg(msg);
   }
   ctx.success({ status: 0 }, 'StockData success!');
 }
