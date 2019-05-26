@@ -38,13 +38,13 @@ const names = [
 async function StockData(ctx) {
   const data = ctx.request.body;
   if (data && data.id) {
-    SelfMap.AddValue(data.id, data);
+    SelfMap.AddValue(data.id, {
+      name: names[data.id - 1],
+      ...data,
+    });
     const mapData = SelfMap.GetAll();
     const keys = Object.keys(mapData);
-    const msg = keys.map(k => ({
-      name: names[k - 1],
-      ...mapData[k],
-    }));
+    const msg = keys.map(k => mapData[k]);
     SendMsg(msg);
   }
   ctx.success({ status: 0 }, 'StockData success!');
