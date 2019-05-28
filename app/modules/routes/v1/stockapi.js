@@ -35,6 +35,17 @@ const names = [
   '日经225',
 ];
 
+function FormatData() {
+  for (let i = 0; i < names.length; i += 1) {
+    SelfMap.AddValue(i + 1, {
+      id: i + 1,
+      name: names[i],
+    });
+  }
+}
+
+FormatData();
+
 async function StockData(ctx) {
   const data = ctx.request.body;
   if (data && data.id) {
